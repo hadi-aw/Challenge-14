@@ -27,3 +27,30 @@ document.getElementById('calculate-interest').addEventListener('click', () => {
     }
 });
 
+// Event listener for calculating loan payment
+document.getElementById('calculate-loan').addEventListener('click', () => {
+    const principle = parseFloat(document.getElementById('principle-loan').value);
+    const rate = parseFloat(document.getElementById('rate-loan').value);
+    const time = parseFloat(document.getElementById('time-loan').value);
+
+    if (validateInputs([principle, rate, time])) {
+        const result = calculateLoanPayment(principle, rate, time);
+        document.getElementById('result-loan').innerText = `Monthly Payment: ${result.toFixed(2)}`;
+    } else {
+        alert('Please enter valid inputs for Loan calculation.');
+    }
+});
+
+// Event listener for calculating investment return
+document.getElementById('calculate-investment').addEventListener('click', () => {
+    const principle = parseFloat(document.getElementById('principle-investment').value);
+    const rate = parseFloat(document.getElementById('rate-investment').value);
+    const time = parseFloat(document.getElementById('time-investment').value);
+
+    if (validateInputs([principle, rate, time])) {
+        const result = calculateInvestmentReturn(principle, rate, time);
+        document.getElementById('result-investment').innerText = `Future Value: ${result.toFixed(2)}`;
+    } else {
+        alert('Please enter valid inputs for Investment calculation.');
+    }
+});
